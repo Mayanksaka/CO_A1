@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# Add command to run your program here
+# echo "Hello World"
+
+javac asmutils/Runner.java
+java asmutils/Runner
