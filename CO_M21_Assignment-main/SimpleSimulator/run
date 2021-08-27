@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# Add command to run your program here
+javac simutils/Runner.java
+java simutils/Runner
