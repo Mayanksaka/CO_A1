@@ -1,6 +1,5 @@
 package asmutils;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
@@ -17,6 +16,7 @@ public class Runner {
     static HashMap<String,ArrayList<Integer>> vartemp= new HashMap<>();
     static String[] instructions = new String[256];
     static boolean iserror=false;
+    static int count=0;
 
 
     public void closefile(){
@@ -33,6 +33,7 @@ public class Runner {
             System.out.println("File not found");
         }
         while (x.hasNextLine()) {
+            count++;
             String a = x.nextLine();
             Scanner y = new Scanner(a);
             ArrayList<String> sub = new ArrayList<>();
@@ -134,7 +135,8 @@ public class Runner {
                 }
 
             } catch (Error.InvalidParametersException| Error.InvalidRegisterException| Error.InvalidVariableNameException | Error.InvalidImmediateException| Error.MisMatchException| Error.LabelNameRepeatException | Error.InvalidInstructionNameException | Error.InvalidLabelNameException | Error.InvalidVarNameException e) {
-                System.out.println(e);
+                System.out.print(e);
+                System.out.println("At line number "+ count);
                 iserror=true;
 
             }
@@ -148,6 +150,7 @@ public class Runner {
             if(templabels.size()>0){
                 System.out.print("label name : ");
                 for (String s:templabels.keySet()) System.out.print(s+", ");
+                for (String s: templabels.keySet()) System.out.println("At line numbers "+ templabels.get(s)+", ");
                 throw new Error.MisMatchException("Not defined");}
             for (String s : variables.keySet()) {
                 variables.put(s, variables.get(s) + linenumber - 1);
@@ -170,7 +173,9 @@ public class Runner {
                     System.out.println(s);
             }}
         } catch (Error.MisMatchException e) {
-            System.out.println(e);
+            System.out.print(e);
+            
+
         }
 
 
