@@ -1,5 +1,6 @@
 package simutils;
 
+
 import java.util.Scanner;
 
 public class MEM {
