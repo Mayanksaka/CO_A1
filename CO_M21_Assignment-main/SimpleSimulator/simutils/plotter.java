@@ -19,6 +19,7 @@ public class plotter extends Application{
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        
         // TODO Auto-generated method stub
         //Configuring Xaxis and Yaxis
         int lowx,highx,lowy,highy;
@@ -38,6 +39,7 @@ public class plotter extends Application{
         for(int i =0;i<Runner.memory_address.size();i++){
             series.getData().add(new XYChart.Data(i,Runner.memory_address.get(i)));
         }
+        
         //Adding series to the ScatterChart
         s.getData().add(series);
 
@@ -47,12 +49,14 @@ public class plotter extends Application{
         Scene scene = new Scene(root,600,400);
         primaryStage.setScene(scene);
         primaryStage.setTitle("ScatterChart Example");
+        
 //        primaryStage.show();
         WritableImage image = scene.snapshot(null);
         SimpleDateFormat formatter = new SimpleDateFormat("dd_MM_yyyy_HH.mm.ss");
         Date date = new Date();
         File file = new File(formatter.format(date)+"Chart.png");
         ImageIO.write(SwingFXUtils.fromFXImage(image, null), "PNG", file);
+        
 //        System.out.println("Image Saved");
         Platform.exit();
     }
