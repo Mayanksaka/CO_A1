@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# Add command to run your program here
+export PATH_TO_FX=/mnt/c/Users/mayan/Downloads/CO_M21_Assignment-main/javafx-sdk-16/lib
+javac --module-path $PATH_TO_FX --add-modules javafx.controls,javafx.graphics,javafx.swing,javafx.base,javafx.fxml simutils/Runner.java
+java --module-path $PATH_TO_FX --add-modules javafx.controls,javafx.graphics,javafx.swing,javafx.base,javafx.fxml simutils/Runner
+# javac simutils/Runner.java
+# java simutils/Runner
