@@ -4,7 +4,7 @@ package simutils;
 import java.util.Scanner;
 
 public class MEM {
-    public static int MEMSIZE=256;
+    public static int MEMSIZE = 256;
     public static int currentsize=0;
     public static String[] memory = new String[MEMSIZE];
     public static void initialize(){
